@@ -37,6 +37,46 @@ public class UserMenu {
         stmt.close();
         main();
     }
+    private static void loginAccount() throws SQLException {
+        System.out.println("| Введите номер карты:");
+        System.out.print("> ");
+        long cardNumber = scanner.nextLong();
+
+        if (!LuhnAlgorithm.numberLuhnAlgorithmCheck(cardNumber)) {
+            System.out.println("\n| Номер карты не соответствует алгоритму Луна!\n");
+            main();
+            return;
+        }
+
+        System.out.println("| Введите пин-код карты:");
+        System.out.print("> ");
+        short cardPin = scanner.nextShort();
+
+        Card card = new Card(cardNumber, cardPin);
+
+        if (!card.isExists()) {
+            System.out.println("\n| Неверный номер карты или пин-код!\n");
+            main();
+
+        } else {
+            Statement stmt = Main.session.getConnection().createStatement();
+
+            String sql = "SELECT name FROM card WHERE number = " + cardNumber;
+            String name = stmt.executeQuery(sql).getString("name");
+
+            sql = "SELECT balance FROM card WHERE number = " + cardNumber;
+            long balance = stmt.executeQuery(sql).getLong("balance");
+
+            card.setBalance(balance);
+            Account account = new Account(card, name);
+            Main.session.login(account);
+            stmt.close();
+            System.out.printf("\n| Добро пожаловать, %s!%n", account.getName());
+
+            loggedIn();
+        }
+    }
+
     private static void loggedIn() throws SQLException {
         System.out.println("""
                                     
