@@ -20,7 +20,7 @@ public class Main {
 
     public static void main(String[] args) throws SQLException, IOException, ParseException {
         JSONParser jsonParser = new JSONParser();
-        FileReader reader = new FileReader(".\\resources\\config.json");
+        FileReader reader = new FileReader("src/resources/config.json");
         config = (JSONObject) jsonParser.parse(reader);
 
         Connection connection = Sql.connect((String) config.get("databaseName"));

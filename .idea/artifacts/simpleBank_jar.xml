@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="simpleBank:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/simpleBank_jar</output-path>
+    <root id="archive" name="simpleBank.jar">
+      <element id="module-output" name="simpleBank" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/json-simple-1.1.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/libs/sqlite-jdbc-3.36.0.1.jar" path-in-jar="/" />
+      <element id="library" level="project" name="BankingSystem" />
+    </root>
+  </artifact>
+</component>

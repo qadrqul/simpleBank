@@ -64,7 +64,7 @@ public class UserMenu {
         System.out.print("> ");
         long cardNumber = scanner.nextLong();
 
-        if (!LuhnAlgorithm.numberLuhnAlgorithmCheck(cardNumber)) {
+        if (LuhnAlgorithm.numberLuhnAlgorithmCheck(cardNumber)) {
             System.out.println("\n| Номер карты не соответствует алгоритму Луна!\n");
             main();
             return;
@@ -171,7 +171,7 @@ public class UserMenu {
         System.out.print("> ");
         long cardNumber = scanner.nextLong();
 
-        if (!LuhnAlgorithm.numberLuhnAlgorithmCheck(cardNumber)) {
+        if (LuhnAlgorithm.numberLuhnAlgorithmCheck(cardNumber)) {
             System.out.println("\n| Номер карты пользователя не соответствует алгоритму Луна!\n");
             loggedIn();
             return;

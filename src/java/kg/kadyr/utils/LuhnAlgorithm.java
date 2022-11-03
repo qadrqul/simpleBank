@@ -41,7 +41,7 @@ public class LuhnAlgorithm {
         }
 
         for (int i : cardNumberList) {
-            if (index % 2 == 0 || index == 0) {
+            if (index % 2 == 0) {
                 if (i * 2 > 9) {
                     i = ((i * 2 - 10) + 1);
                 } else {
@@ -65,7 +65,7 @@ public class LuhnAlgorithm {
     }
     public static boolean numberLuhnAlgorithmCheck(long number) {
         ArrayList<Integer> cardNumberList = new ArrayList<>(),
-                multipliedOddNumbersCardNumberList = new ArrayList<>();;
+                multipliedOddNumbersCardNumberList = new ArrayList<>();
         short sum, index = 0;
 
         for (char i : String.valueOf(number).toCharArray()) {
@@ -73,7 +73,7 @@ public class LuhnAlgorithm {
         }
 
         for (int i : cardNumberList) {
-            if (index % 2 == 0 || index == 0) {
+            if (index % 2 == 0) {
                 if (i * 2 > 9) {
                     i = ((i * 2 - 10) + 1);
                 } else {
@@ -86,6 +86,6 @@ public class LuhnAlgorithm {
 
         sum = (short) multipliedOddNumbersCardNumberList.stream().mapToInt(a -> a).sum();
 
-        return sum % 10 == 0;
+        return sum % 10 != 0;
     }
 }
