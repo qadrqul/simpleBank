@@ -15,6 +15,28 @@ public class UserMenu {
     final static Scanner scanner = new Scanner(System.in, "Cp866");
     public static void main() throws SQLException {
     }
+    private static void createAccount() throws SQLException {
+        System.out.println("| Как вас зовут?");
+        System.out.print("> ");
+        String name = scanner.next();
+
+        Card card = new Card(LuhnAlgorithm.generate());
+
+        String sql = "INSERT INTO card (name, number, pin, balance) VALUES (" + "'" + name + "'" + ", " + card.getNumber() + ", " + card.getPin() + ", " + 0 + ")";
+        Statement stmt = Main.session.getConnection().createStatement();
+        stmt.execute(sql);
+
+        System.out.printf("""
+                                
+                | %s, вы успешно зарегистрировались в системе!
+                | Номер карты: %s
+                | Пин-код: %s
+                |
+                | Для входа в аккаунт вам необходим номер карты и пин-код%n""", name, card.getNumber(), card.getPin());
+
+        stmt.close();
+        main();
+    }
     private static void loggedIn() throws SQLException {
         System.out.println("""
                                     
