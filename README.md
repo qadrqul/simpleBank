@@ -14,4 +14,5 @@
 3. To check the number for compliance with the Luhn algorithm,
    you can use the site: https://simplycalc.com/luhn-validate.php
 
-## UML![](../../Downloads/simpleBank.png)
+## UML
+![simpleBank](https://user-images.githubusercontent.com/82796266/199685084-fa35b362-cb5a-4332-b38a-668e4ec6e433.png)
