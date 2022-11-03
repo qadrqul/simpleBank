@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+//who are you ? warrior?
 
 public class Sql {
     public static Connection connect(String filename) {
