@@ -16,3 +16,8 @@
 
 ## UML
 ![simpleBank](https://user-images.githubusercontent.com/82796266/199685084-fa35b362-cb5a-4332-b38a-668e4ec6e433.png)
+
+## Author
+### Kadyrmamat Momunov
+- [GitHub](https://github.com/JagdpantherK)
+- [YouTube](https://www.youtube.com/)
