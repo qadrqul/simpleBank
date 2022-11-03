@@ -14,6 +14,28 @@ import java.util.Scanner;
 public class UserMenu {
     final static Scanner scanner = new Scanner(System.in, "Cp866");
     public static void main() throws SQLException {
+        System.out.println("""
+                                
+                | Выберите желаемое действие:
+                |  1. Зарегистрироваться
+                |  2. Войти в существующий аккаунт
+                |  0. Выйти из системы""");
+
+        System.out.print("> ");
+
+        int userOperation = scanner.nextInt();
+        switch (userOperation) {
+            case 1 -> createAccount();
+            case 2 -> loginAccount();
+            case 0 -> {
+                System.out.println("\n| До новых встреч!\n");
+                Main.session.getConnection().close();
+            }
+            default -> {
+                System.out.println("\n| Неизвестная операция");
+                main();
+            }
+        }
     }
     private static void createAccount() throws SQLException {
         System.out.println("| Как вас зовут?");
